@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>NSFaceIDUsageDescription</key>
-	<string>Bu uygulama FaceID ile çalışmaktadır</string>
+	<string>Bu uygulama güvenliğiniz için FaceID ile çalışmaktadır</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

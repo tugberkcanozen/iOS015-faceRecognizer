@@ -9,6 +9,7 @@ import UIKit
 import LocalAuthentication
 
 class ViewController: UIViewController {
+    private let authContext = LAContext()
 
     @IBOutlet weak var textLabel: UILabel!
     override func viewDidLoad() {
@@ -18,13 +19,11 @@ class ViewController: UIViewController {
 
     @IBAction func buttonClicked(_ sender: Any) {
         
-        let authContext = LAContext() // Cihaz FaceID destekliyor mu kontrol etmek için bu sınıfı ekliyoruz
         var error: NSError?
         
         // Burada biometric özelliğini kullanacağımızı belirtiyoruz ve eğer yapabiliyorsa perform segue ile ikinci sayfaya gönderiyoruz.
-        
         if authContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
-            authContext.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "Is that you?") { success, error in
+            authContext.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "Is it you?") { success, error in
                 if success == true {
                     DispatchQueue.main.async {
                         self.performSegue(withIdentifier: "toSecondVC", sender: nil)
